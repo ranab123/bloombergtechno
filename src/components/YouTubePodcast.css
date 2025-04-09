@@ -1,0 +1,1076 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --cyber-bg: #000000;
+  --cyber-bg-alt: #000000;
+  --cyber-accent: #0FFFB7;
+  --cyber-accent2: #0077ff;
+  --cyber-text: #e0e0e0;
+  --cyber-border: 2px solid var(--cyber-accent);
+  --cyber-shadow: 0 0 10px rgba(0, 255, 140, 0.5);
+  --cyber-shadow2: 0 0 15px rgba(0, 119, 255, 0.5);
+  --cyber-glow: 0 0 10px rgba(15, 255, 183, 0.8);
+  --cyber-glow-text: 0 0 5px rgba(15, 255, 183, 0.8);
+}
+
+.cyber-player {
+  font-family: 'VT323', monospace;
+  color: var(--cyber-text);
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: var(--cyber-bg);
+  letter-spacing: 1px;
+  flex: 1;
+  min-width: 0;
+  width: 70%;
+  font-size: 1.2em;
+}
+
+.cyber-frame {
+  border: var(--cyber-border);
+  box-shadow: var(--cyber-shadow);
+  padding: 2px;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.frame-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: transparent;
+  border-bottom: 1px solid var(--cyber-accent);
+}
+
+.frame-title {
+  color: var(--cyber-accent);
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'VT323', monospace;
+}
+
+.frame-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.control-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cyber-accent);
+  box-shadow: 0 0 5px var(--cyber-accent);
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+}
+
+#youtube-player-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#youtube-embed {
+  width: 100%;
+  height: 100%;
+}
+
+/* Remove these rules if they exist */
+.video-frame iframe {
+  pointer-events: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.video-frame::after {
+  pointer-events: none;
+}
+
+/* Remove or comment out the scan-line class */
+.scan-line {
+  display: none;  /* This will hide it completely */
+}
+
+/* Remove or comment out the scanline animation */
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 450px; }
+}
+
+/* Remove or comment out the video-overlay class */
+.video-overlay {
+  display: none;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--cyber-bg);
+  border-top: 1px solid var(--cyber-accent);
+  font-size: 14px;
+}
+
+.time-code {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
+
+.status-indicator {
+  letter-spacing: 2px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
+
+.status-playing {
+  color: var(--cyber-accent);
+  animation: blink 1s infinite;
+}
+
+.status-paused {
+  color: var(--cyber-accent2);
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+.cyber-progress {
+  padding: 5px 12px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 2px;
+  -webkit-appearance: none;
+  background: #000000;
+  outline: none;
+  position: relative;
+  z-index: 5;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--cyber-accent);
+  border-radius: 0;
+  box-shadow: 0 0 5px var(--cyber-accent);
+  cursor: pointer;
+}
+
+.cyber-controls {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cyber-button {
+  background-color: var(--cyber-bg);
+  color: var(--cyber-text);
+  border: 1px solid var(--cyber-accent);
+  padding: 10px 15px;
+  font-family: 'VT323', monospace;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s;
+  min-width: 75px;
+  box-shadow: 0 0 5px rgba(0, 255, 140, 0.2);
+  font-size: 16px;
+}
+
+.cyber-button:hover {
+  background-color: var(--cyber-bg-alt);
+  box-shadow: 0 0 8px rgba(0, 255, 140, 0.4);
+}
+
+.main-button {
+  background-color: var(--cyber-bg-alt);
+  border: 2px solid var(--cyber-accent);
+  box-shadow: 0 0 8px rgba(0, 255, 140, 0.4);
+  min-width: 100px;
+}
+
+.button-icon {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.button-text {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.speed-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.speed-label {
+  font-size: 16px;
+  color: var(--cyber-accent);
+  font-family: 'VT323', monospace;
+}
+
+.speed-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.cyber-speed {
+  background-color: var(--cyber-bg);
+  color: var(--cyber-text);
+  border: 1px solid var(--cyber-accent2);
+  padding: 5px 10px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cyber-speed:hover {
+  background-color: var(--cyber-bg-alt);
+  box-shadow: 0 0 8px rgba(0, 255, 140, 0.4);
+}
+
+.cyber-speed.active {
+  background-color: var(--cyber-accent2);
+  color: black;
+  box-shadow: 0 0 8px rgba(0, 119, 255, 0.6);
+}
+
+/* Add glitch effect on hover */
+.cyber-frame:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(0, 255, 140, 0.1) 50%,
+    transparent 100%
+  );
+  z-index: 10;
+  pointer-events: none;
+  animation: glitch 0.8s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Techno Mixer Styles */
+.techno-mixer {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.mixer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mixer-label {
+  color: var(--cyber-accent);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.techno-status {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.techno-active {
+  color: var(--cyber-accent);
+  animation: blink 1s infinite;
+}
+
+.techno-inactive {
+  color: #0088ff;
+}
+
+.techno-volume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.volume-label {
+  color: var(--cyber-text);
+  font-size: 16px;
+  font-family: 'VT323', monospace;
+}
+
+.volume-slider {
+  width: 150px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #000000;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--cyber-accent);
+  border-radius: 0;
+  box-shadow: 0 0 5px var(--cyber-accent);
+  cursor: pointer;
+}
+
+.volume-value {
+  font-size: 16px;
+  min-width: 40px;
+  text-align: right;
+  font-family: 'VT323', monospace;
+}
+
+.techno-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.techno-button {
+  background-color: var(--cyber-bg);
+  border-color: var(--cyber-accent2);
+  box-shadow: 0 0 5px rgba(0, 119, 255, 0.2);
+}
+
+.techno-button:hover {
+  box-shadow: 0 0 8px rgba(0, 119, 255, 0.4);
+}
+
+.techno-button.main-button {
+  border-color: var(--cyber-accent2);
+  background-color: rgba(0, 119, 255, 0.2);
+}
+
+.control-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.techno-speed-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.speed-slider-label {
+  color: var(--cyber-text);
+  font-size: 12px;
+  min-width: 50px;
+}
+
+.speed-slider {
+  width: 150px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #000000;
+  outline: none;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--cyber-accent2);
+  border-radius: 0;
+  box-shadow: 0 0 5px var(--cyber-accent2);
+  cursor: pointer;
+}
+
+.speed-value {
+  font-size: 16px;
+  min-width: 40px;
+  text-align: right;
+  font-family: 'VT323', monospace;
+}
+
+/* Update the controls layout for better positioning */
+.cyber-youtube-controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: transparent;
+  margin-bottom: 10px;
+  font-family: 'VT323', monospace;
+}
+
+/* Left section - timestamp */
+.timestamp-section {
+  justify-self: start;
+}
+
+/* Center section - playback controls */
+.center-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: center;
+}
+
+/* Right section - speed control */
+.blocky-right-controls {
+  justify-self: end;
+}
+
+/* Remove the margin-left from time-code-display since it's now in its own container */
+.time-code-display {
+  margin-left: 0;
+}
+
+/* Small blocky buttons */
+.cyber-button.small-button {
+  padding: 5px 8px;
+  min-width: 50px;
+  font-size: 12px;
+  border: 1px solid var(--cyber-accent);
+  box-shadow: 0 0 5px rgba(0, 255, 140, 0.2);
+  background-color: var(--cyber-bg);
+  color: var(--cyber-text);
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: auto;
+}
+
+.cyber-button.small-button:hover {
+  background-color: var(--cyber-bg-alt);
+  box-shadow: 0 0 8px rgba(0, 255, 140, 0.4);
+}
+
+/* Blocky speed selector */
+.blocky-speed-selector {
+  position: relative;
+}
+
+.cyber-button.small-button.speed-button {
+  min-width: 40px;
+  border-color: var(--cyber-accent);
+}
+
+.blocky-speed-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--cyber-bg);
+  border: 1px solid var(--cyber-accent);
+  flex-direction: column;
+  width: 80px;
+  z-index: 10;
+}
+
+.blocky-speed-selector:hover .blocky-speed-dropdown {
+  display: none;
+}
+
+.blocky-status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border: 1px solid var(--cyber-accent);
+  background-color: var(--cyber-bg-alt);
+}
+
+/* Keep the scan line effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Remove original YouTube style controls */
+.youtube-style-controls {
+  display: none;
+}
+
+/* Status indicator */
+.status-indicator {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.status-playing {
+  color: var(--cyber-accent);
+}
+
+.status-paused {
+  color: #ff3366;
+}
+
+/* Update progress bar style */
+.cyber-progress {
+  margin-bottom: 0;
+  padding: 0 5px;
+}
+
+/* You may need to hide the original control elements if they're still present */
+.cyber-controls .control-group,
+.cyber-controls .speed-controls,
+.time-display {
+  display: none;
+}
+
+/* Add styles for the play/pause symbol */
+.button-symbol {
+  font-size: 12px;
+}
+
+/* Update the header status indicator */
+.header-status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border: 1px solid var(--cyber-accent);
+  background-color: var(--cyber-bg-alt);
+}
+
+/* Remove the special play button styling */
+.cyber-button.small-button.play-button {
+  /* Remove these lines:
+  min-width: 50px;
+  border: 2px solid var(--cyber-accent);
+  */
+}
+
+/* The button will now inherit the standard small-button styles:
+.cyber-button.small-button {
+  padding: 5px 8px;
+  min-width: 50px;
+  font-size: 12px;
+  border: 1px solid var(--cyber-accent);
+  ...
+}
+*/
+
+/* YouTube speed slider */
+.youtube-speed-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.youtube-speed-slider {
+  width: 100px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #333;
+  outline: none;
+}
+
+.youtube-speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--cyber-accent);
+  border-radius: 0;
+  box-shadow: 0 0 5px var(--cyber-accent);
+  cursor: pointer;
+}
+
+/* Remove the blocky speed selector since we're replacing it */
+.blocky-speed-selector {
+  display: none;
+}
+
+/* YouTube style layout */
+.youtube-layout {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Techno playlist column */
+.techno-playlist-column {
+  width: 30%;
+  min-width: 250px;
+  background-color: var(--cyber-bg);
+  border: 1px solid var(--cyber-accent);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 255, 140, 0.2);
+  max-height: 585px; /* Match height of cyber-player */
+  overflow: hidden;
+}
+
+.playlist-header {
+  padding: 10px 15px;
+  background-color: var(--cyber-bg-alt);
+  color: var(--cyber-accent);
+  font-weight: bold;
+  font-family: 'VT323', monospace;
+  border-bottom: 1px solid var(--cyber-accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-items {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--cyber-accent) var(--cyber-bg);
+}
+
+.playlist-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.playlist-items::-webkit-scrollbar-thumb {
+  background-color: var(--cyber-accent);
+}
+
+.playlist-items::-webkit-scrollbar-track {
+  background-color: var(--cyber-bg);
+}
+
+/* Playlist item styling */
+.playlist-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 255, 140, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.playlist-item:hover {
+  background-color: rgba(0, 255, 140, 0.05);
+}
+
+.playlist-item.active {
+  background-color: rgba(0, 255, 140, 0.1);
+  border-left: 3px solid var(--cyber-accent);
+}
+
+.playlist-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.playlist-item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.playlist-item-number {
+  font-family: 'VT323', monospace;
+  color: var(--cyber-accent);
+  font-size: 20px;
+  min-width: 25px;
+}
+
+.playlist-item-info {
+  flex: 1;
+}
+
+.playlist-item-title {
+  font-family: 'VT323', monospace;
+  color: var(--cyber-text);
+  margin-bottom: 5px;
+  font-size: 18px; /* Keep the increased font size */
+  visibility: visible; /* Make sure it's visible */
+}
+
+.playlist-item-metadata {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'VT323', monospace;
+}
+
+.playlist-item-playing {
+  background-color: rgba(0, 255, 140, 0.2);
+  padding: 2px 8px;
+  border-radius: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.playlist-item-status {
+  color: var(--cyber-accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .youtube-layout {
+    flex-direction: column;
+  }
+  
+  .cyber-player, .techno-playlist-column {
+    width: 100%;
+  }
+  
+  .techno-playlist-column {
+    max-height: 300px; /* Set a fixed height when stacked */
+  }
+}
+
+/* Updated unified controls styles for Spotify-like layout */
+.playlist-controls {
+  background-color: var(--cyber-bg);
+  border-top: 1px solid var(--cyber-accent);
+}
+
+/* Track info section */
+.control-track-info {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 255, 140, 0.2);
+  background-color: rgba(0, 255, 140, 0.05);
+}
+
+.playlist-progress-wrapper {
+  margin-top: 8px;
+  padding-left: 35px; /* Align with content after the number */
+}
+
+.playlist-progress-bar {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #000000;
+  outline: none;
+}
+
+.playlist-progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--cyber-accent);
+  border-radius: 0;
+  box-shadow: 0 0 5px var(--cyber-accent);
+  cursor: pointer;
+}
+
+/* Control sections */
+.control-sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-section {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 255, 140, 0.2);
+  transition: background-color 0.2s;
+}
+
+.control-section:hover {
+  background-color: rgba(0, 255, 140, 0.05);
+}
+
+/* Control status */
+.control-status {
+  padding: 3px 8px;
+  border: 1px solid var(--cyber-accent);
+  background-color: var(--cyber-bg-alt);
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
+
+/* Control buttons */
+.control-buttons {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.cyber-button.control-button {
+  background-color: var(--cyber-bg);
+  color: var(--cyber-text);
+  border: 1px solid var(--cyber-accent);
+  padding: 8px 12px;
+  font-family: 'VT323', monospace;
+  cursor: pointer;
+  font-size: 14px;
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.cyber-button.control-button:hover {
+  background-color: rgba(0, 255, 140, 0.1);
+  box-shadow: 0 0 8px rgba(0, 255, 140, 0.3);
+}
+
+/* Control sliders */
+.full-width {
+  width: 100%;
+}
+
+.control-slider-label {
+  font-family: 'VT323', monospace;
+  color: var(--cyber-text);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.control-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-slider {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #000000;
+  outline: none;
+}
+
+.control-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--cyber-accent);
+  border-radius: 0;
+  box-shadow: 0 0 5px var(--cyber-accent);
+  cursor: pointer;
+}
+
+.control-value {
+  font-family: 'VT323', monospace;
+  color: var(--cyber-accent);
+  font-size: 14px;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Hide the old controls that we're replacing */
+.playlist-controls-header,
+.song-info-row,
+.song-progress-container,
+.playback-main-controls,
+.secondary-controls {
+  display: none;
+}
+
+/* Add these styles to hide YouTube UI elements */
+.video-frame iframe {
+  width: 100%;
+  height: 450px;
+  z-index: 1;
+}
+
+/* Only allow clicking on the actual video area */
+.video-frame {
+  position: relative;
+}
+
+.video-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Update unified controls for new layout */
+.unified-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 15px;
+  background-color: var(--cyber-bg-alt);
+  border-bottom: 1px solid rgba(0, 255, 140, 0.2);
+}
+
+/* Centered playback row */
+.playback-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Row for sliders with even spacing */
+.sliders-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+}
+
+/* Adjust slider widths in the combined row */
+.sliders-row .control-group {
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* Create a divider between sliders */
+.slider-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #333;
+  margin: 0 8px;
+}
+
+/* Make sliders slightly wider */
+.sliders-row .compact-slider {
+  width: calc(100% - 80px);
+  min-width: 60px;
+  max-width: 150px;
+}
+
+/* Keep consistent cyberpunk styling */
+.cyber-button.compact-button {
+  background-color: transparent;
+  color: var(--cyber-accent);
+  border: 1px solid var(--cyber-accent);
+  padding: 5px 10px;
+  min-width: 40px;
+  height: 30px;
+}
+
+/* Update slider thumbs to be blue instead of green */
+.compact-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: #0088ff;
+  border-radius: 0;
+  box-shadow: 0 0 5px rgba(0, 136, 255, 0.7);
+  cursor: pointer;
+}
+
+/* Style the playback buttons to match your screenshot - outlined buttons */
+.cyber-button.compact-button {
+  background-color: transparent;
+  color: var(--cyber-accent);
+  border: 1px solid var(--cyber-accent);
+  padding: 5px 10px;
+  min-width: 40px;
+  height: 30px;
+}
+
+/* Update the divider color */
+.slider-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #333;
+  margin: 0 8px;
+}
+
+.video-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+  background-color: var(--cyber-bg);
+  color: var(--cyber-accent);
+  font-family: 'VT323', monospace;
+  animation: blink 1s infinite;
+}
+
+/* Update the sliders and their containers */
+.control-slider,
+.volume-slider,
+.speed-slider,
+.progress-bar,
+.playlist-progress-bar {
+  background: #000000;  /* Set to pure black */
+  border: 1px solid var(--cyber-accent);
+}
+
+/* Update any backgrounds that might be affecting the components */
+.cyber-youtube-controls,
+.unified-controls,
+.control-section,
+.control-track-info,
+.playlist-controls {
+  background-color: transparent;
+}
+
+/* Ensure the slider track is black */
+.control-slider::-webkit-slider-track,
+.volume-slider::-webkit-slider-track,
+.speed-slider::-webkit-slider-track,
+.progress-bar::-webkit-slider-track,
+.playlist-progress-bar::-webkit-slider-track {
+  background: #000000;
+}
+
+/* Update the slider container backgrounds */
+.control-slider-container,
+.techno-volume,
+.techno-speed-control {
+  background-color: transparent;
+}
+
+/* Make playlist titles bigger */
+.playlist-item-title {
+  font-family: 'VT323', monospace;
+  color: var(--cyber-text);
+  margin-bottom: 5px;
+  font-size: 18px; /* Increased from 14px to 18px */
+}
+
+/* Remove "SET_" prefix using CSS */
+.playlist-item-title {
+  text-transform: capitalize; /* Capitalize the first letter after removing prefix */
+}
+
+/* This uses CSS to visually hide the "SET_" prefix */
+.playlist-item-title::first-line {
+  visibility: visible;
+}
+
+.playlist-item-title span:first-child {
+  display: none;
+} 
