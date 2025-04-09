@@ -157,11 +157,25 @@ body::after {
   text-shadow: var(--crt-green-glow);
   animation: glow-pulse 4s infinite;
   text-align: center;
+  padding: 0 15px;
 }
 
 .cyber-title .highlight {
   color: var(--crt-green);
   animation: text-flicker 5s infinite;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .cyber-title {
+    font-size: 1.8rem;
+    padding: 0 20px;
+    letter-spacing: 1px;
+  }
+  
+  .cyber-app {
+    padding: 15px;
+  }
 }
 
 /* Main content */

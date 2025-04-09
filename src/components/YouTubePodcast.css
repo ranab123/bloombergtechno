@@ -729,6 +729,12 @@
   font-family: 'VT323', monospace;
 }
 
+/* New style for artist display */
+.playlist-item-artist {
+  color: var(--cyber-accent);
+  font-style: italic;
+}
+
 .playlist-item-playing {
   background-color: rgba(0, 255, 140, 0.2);
   padding: 2px 8px;
@@ -752,7 +758,21 @@
   }
   
   .techno-playlist-column {
-    max-height: 300px; /* Set a fixed height when stacked */
+    max-height: 400px; /* Increased from 300px to 400px for mobile */
+  }
+  
+  /* Make playlist items more compact on mobile */
+  .playlist-item {
+    padding: 8px 12px;
+  }
+  
+  /* Ensure the playlist items are still readable but compact */
+  .playlist-item-title {
+    font-size: 16px;
+  }
+  
+  .playlist-item-metadata {
+    font-size: 12px;
   }
 }
 
@@ -766,26 +786,63 @@
 .control-track-info {
   padding: 10px 15px;
   border-bottom: 1px solid rgba(0, 255, 140, 0.2);
-  background-color: rgba(0, 255, 140, 0.05);
+  background-color: #000000; /* Pure black background */
 }
 
-.playlist-progress-wrapper {
-  margin-top: 8px;
-  padding-left: 35px; /* Align with content after the number */
+/* Hide standby box and play button in control-track-info section only */
+.control-track-info .techno-status,
+.control-track-info .playlist-item-number {
+  display: none;
 }
 
+/* Make the title larger and more prominent */
+.control-track-info .playlist-item-title {
+  font-size: 24px;
+  color: var(--cyber-accent);
+  margin-bottom: 8px;
+  text-align: left;
+  font-family: 'VT323', monospace;
+}
+
+/* Make the artist name italic and slightly dimmer */
+.control-track-info .playlist-item-artist {
+  font-style: italic;
+  color: var(--cyber-accent);
+  opacity: 0.9;
+}
+
+/* Style the time display to be on the right side */
+.control-track-info .song-time-display {
+  color: var(--cyber-accent);
+  opacity: 0.9;
+}
+
+/* Remove all padding since the play button is gone */
+.control-track-info .playlist-item-info {
+  padding-left: 0;
+  width: 100%;
+}
+
+/* Remove the left padding from the progress bar since the play button is gone */
+.control-track-info .playlist-progress-wrapper {
+  margin-top: 12px;
+  padding-left: 0;
+}
+
+/* Adjust progress bar to match screenshot */
 .playlist-progress-bar {
   width: 100%;
-  height: 6px;
+  height: 8px;
   -webkit-appearance: none;
   background: #000000;
   outline: none;
+  border: 1px solid var(--cyber-accent);
 }
 
 .playlist-progress-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   background: var(--cyber-accent);
   border-radius: 0;
   box-shadow: 0 0 5px var(--cyber-accent);
@@ -920,14 +977,13 @@
   pointer-events: none;
 }
 
-/* Update unified controls for new layout */
+/* Updated unified controls styles to match screenshot */
 .unified-controls {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 10px 15px;
-  background-color: var(--cyber-bg-alt);
-  border-bottom: 1px solid rgba(0, 255, 140, 0.2);
+  gap: 15px;
+  padding: 15px;
+  background-color: #000000;
 }
 
 /* Centered playback row */
@@ -937,85 +993,84 @@
   width: 100%;
 }
 
-/* Row for sliders with even spacing */
+/* Update the sliders-row to stack vertically */
 .sliders-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 15px;
   width: 100%;
-  gap: 5px;
+  padding-top: 5px;
 }
 
-/* Adjust slider widths in the combined row */
-.sliders-row .control-group {
-  flex: 1;
-  justify-content: space-between;
-}
-
-/* Create a divider between sliders */
+/* Remove the divider since we're stacking vertically */
 .slider-divider {
-  width: 1px;
-  height: 20px;
-  background-color: #333;
-  margin: 0 8px;
+  display: none;
 }
 
-/* Make sliders slightly wider */
-.sliders-row .compact-slider {
-  width: calc(100% - 80px);
-  min-width: 60px;
-  max-width: 150px;
+/* Ensure control groups take full width */
+.sliders-row .control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
-/* Keep consistent cyberpunk styling */
+/* Button styling to match screenshot exactly */
 .cyber-button.compact-button {
   background-color: transparent;
   color: var(--cyber-accent);
   border: 1px solid var(--cyber-accent);
-  padding: 5px 10px;
-  min-width: 40px;
-  height: 30px;
+  padding: 8px 15px;
+  min-width: 60px;
+  height: 36px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  margin: 0 5px;
 }
 
-/* Update slider thumbs to be blue instead of green */
+.cyber-button.compact-button:hover {
+  background-color: rgba(15, 255, 183, 0.1);
+}
+
+/* Slider styling to match screenshot */
+.sliders-row .control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.compact-label {
+  color: var(--cyber-accent);
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  min-width: 40px;
+}
+
+.compact-slider {
+  -webkit-appearance: none;
+  height: 8px;
+  background: #000000;
+  border: 1px solid var(--cyber-accent);
+  flex: 1;
+}
+
 .compact-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 10px;
-  height: 10px;
-  background: #0088ff;
+  width: 20px;
+  height: 20px;
+  background: var(--cyber-accent);
   border-radius: 0;
-  box-shadow: 0 0 5px rgba(0, 136, 255, 0.7);
+  box-shadow: 0 0 5px var(--cyber-accent);
   cursor: pointer;
 }
 
-/* Style the playback buttons to match your screenshot - outlined buttons */
-.cyber-button.compact-button {
-  background-color: transparent;
-  color: var(--cyber-accent);
-  border: 1px solid var(--cyber-accent);
-  padding: 5px 10px;
-  min-width: 40px;
-  height: 30px;
-}
-
-/* Update the divider color */
-.slider-divider {
-  width: 1px;
-  height: 20px;
-  background-color: #333;
-  margin: 0 8px;
-}
-
-.video-loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 450px;
-  background-color: var(--cyber-bg);
+.compact-value {
   color: var(--cyber-accent);
   font-family: 'VT323', monospace;
-  animation: blink 1s infinite;
+  font-size: 18px;
+  min-width: 50px;
+  text-align: right;
 }
 
 /* Update the sliders and their containers */
@@ -1073,4 +1128,68 @@
 
 .playlist-item-title span:first-child {
   display: none;
+}
+
+/* Add more mobile-specific adjustments */
+@media (max-width: 768px) {
+  /* Make the YouTube controls more compact */
+  .cyber-youtube-controls {
+    grid-template-columns: 1fr auto 1fr;
+    padding: 5px;
+    gap: 5px;
+  }
+  
+  /* Adjust time display for mobile */
+  .time-code-display {
+    font-size: 12px;
+  }
+  
+  /* Make control buttons smaller on mobile */
+  .cyber-button.small-button {
+    padding: 4px 6px;
+    min-width: 40px;
+    font-size: 11px;
+  }
+  
+  /* Make the speed control more compact */
+  .youtube-speed-control {
+    gap: 5px;
+  }
+  
+  .speed-slider-label {
+    font-size: 10px;
+  }
+  
+  .youtube-speed-slider {
+    width: 80px;
+  }
+  
+  .speed-value {
+    font-size: 12px;
+    min-width: 30px;
+  }
+  
+  /* Make the video frame adjust properly to screen size */
+  .video-frame {
+    height: auto;
+    min-height: 250px;
+    max-height: 350px;
+  }
+  
+  #youtube-embed {
+    height: 100%;
+  }
+}
+
+/* Video loading style */
+.video-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+  background-color: var(--cyber-bg);
+  color: var(--cyber-accent);
+  font-family: 'VT323', monospace;
+  animation: blink 1s infinite;
 } 

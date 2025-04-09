@@ -28,13 +28,13 @@ const YouTubePodcast = () => {
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const [videoTitle, setVideoTitle] = useState('');
   
-  // Updated track data with actual song files
+  // Updated track data with actual song files from the audio folder
   const tracks = [
-    { name: "Techno", bpm: 120, file: "/songs/[SPOTDOWNLOADER.COM] Boyz N Da Club - Radio Edit.mp3" },
-    { name: "EDM", bpm: 125, file: "/songs/[SPOTDOWNLOADER.COM] B.O.T.A. (Baddest Of Them All) - Edit.mp3" },
-    { name: "Deep House", bpm: 130, file: "/songs/[SPOTDOWNLOADER.COM] Bulletproof.mp3" },
-    { name: "RNB", bpm: 145, file: "/songs/[SPOTDOWNLOADER.COM] Can't Love Myself (feat. Mishaal & LPW).mp3" },
-    { name: "Home Depot", bpm: 150, file: "/songs/[SPOTDOWNLOADER.COM] Afraid To Feel.mp3" }
+    { name: "Live at Boxpac", artist: "Disco Lines", file: "/audio/Disco Lines | Live at Boxpac.mp3" },
+    { name: "Boiler Room Berlin", artist: "Estella Boersma", file: "/audio/Estella Boersma | Boiler Room Festival Berlin.mp3" },
+    { name: "Berlin Deep House Mix", artist: "Chris Luno", file: "/audio/Chris Luno | Berlin Deep House Mix.mp3" },
+    { name: "PARTYGIRL Ibiza", artist: "Charli XCX", file: "/audio/Charli XCX | PARTYGIRL Ibiza.mp3" },
+    { name: "Home Depot Beat", artist: "Anonymous", file: "/audio/Home Depot Beat.mp3" }
   ];
   
   // Add this state variable near the top with your other state variables
@@ -736,7 +736,7 @@ const YouTubePodcast = () => {
                 <div className="playlist-item-info">
                   <div className="playlist-item-title">{track.name}</div>
                   <div className="playlist-item-metadata">
-                    <span className="playlist-item-bpm">{track.bpm} BPM</span>
+                    <span className="playlist-item-artist">{track.artist}</span>
                     <span className="playlist-item-duration">
                       {formatTime(trackDurations[index] || 0)}
                     </span>
@@ -763,6 +763,7 @@ const YouTubePodcast = () => {
               <div className="playlist-item-info">
                 <div className="playlist-item-title">{tracks[currentTechnoTrack].name}</div>
                 <div className="playlist-item-metadata">
+                  <span className="playlist-item-artist">{tracks[currentTechnoTrack].artist}</span>
                   <span className="song-time-display">
                     {formatTime(audioTime)} / {formatTime(audioDuration)}
                   </span>
@@ -830,9 +831,6 @@ const YouTubePodcast = () => {
                 />
                 <span className="compact-value">{Math.round(technoVolume * 100)}%</span>
               </div>
-
-              {/* Divider */}
-              <div className="slider-divider"></div>
 
               {/* Speed control - with actual functionality */}
               <div className="control-group">
