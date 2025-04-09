@@ -28,13 +28,13 @@ const YouTubePodcast = () => {
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const [videoTitle, setVideoTitle] = useState('');
   
-  // Updated track data with actual song files from the audio folder
+  // Updated track data with audio files hosted on external CDN
   const tracks = [
-    { name: "Live at Boxpac", artist: "Disco Lines", file: "/audio/Disco Lines | Live at Boxpac.mp3" },
-    { name: "Boiler Room Berlin", artist: "Estella Boersma", file: "/audio/Estella Boersma | Boiler Room Festival Berlin.mp3" },
-    { name: "Berlin Deep House Mix", artist: "Chris Luno", file: "/audio/Chris Luno | Berlin Deep House Mix.mp3" },
-    { name: "PARTYGIRL Ibiza", artist: "Charli XCX", file: "/audio/Charli XCX | PARTYGIRL Ibiza.mp3" },
-    { name: "Home Depot Beat", artist: "Anonymous", file: "/audio/Home Depot Beat.mp3" }
+    { name: "Live at Boxpac", artist: "Disco Lines", file: "https://storage.googleapis.com/btechno-audio/Disco%20Lines%20%7C%20Live%20at%20Boxpac.mp3" },
+    { name: "Boiler Room Berlin", artist: "Estella Boersma", file: "https://storage.googleapis.com/btechno-audio/Estella%20Boersma%20%7C%20Boiler%20Room%20Festival%20Berlin.mp3" },
+    { name: "Berlin Deep House Mix", artist: "Chris Luno", file: "https://storage.googleapis.com/btechno-audio/Chris%20Luno%20%7C%20Berlin%20Deep%20House%20Mix.mp3" },
+    { name: "PARTYGIRL Ibiza", artist: "Charli XCX", file: "https://storage.googleapis.com/btechno-audio/Charli%20XCX%20%7C%20PARTYGIRL%20Ibiza.mp3" },
+    { name: "Home Depot Beat", artist: "Anonymous", file: "https://storage.googleapis.com/btechno-audio/Home%20Depot%20Beat.mp3" }
   ];
   
   // Add this state variable near the top with your other state variables

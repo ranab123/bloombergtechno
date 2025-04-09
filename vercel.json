@@ -10,8 +10,12 @@
       "dest": "/static/$1"
     },
     {
+      "src": "/btechlogo.png",
+      "dest": "/btechlogo.png"
+    },
+    {
       "src": "/favicon.ico",
-      "dest": "/favicon.ico"
+      "dest": "/btechlogo.png"
     },
     {
       "src": "/manifest.json",
